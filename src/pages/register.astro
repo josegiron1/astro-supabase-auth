@@ -1,0 +1,13 @@
+---
+import Register from "../components/Register.svelte";
+import Layout from "../layouts/Layout.astro";
+import { getUser } from "../supabase";
+
+const user = getUser(Astro.request);
+---
+
+<Layout title="Register" user={user}>
+    <main class="h-screen mx-auto w-max flex flex-col justify-center align-center">
+        <Register client:load />
+    </main>
+</Layout>

@@ -1,0 +1,13 @@
+---
+import { getUser } from "../supabase";
+const user = await getUser(Astro.request);
+
+import Login from "../components/Login.svelte";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to Astro" user={user as object}>
+    <main class="h-screen w-max mx-auto flex flex-col justify-center align-center gap-3">
+        <Login client:load />
+    </main>
+</Layout>
